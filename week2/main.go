@@ -31,8 +31,8 @@ func LogicDemo(c *gin.Context) {
 			c.JSON(http.StatusNotFound, "not found")
 			return
 		} else {
-			log.Println(err)
-			c.JSON(http.StatusInternalServerError, err)
+			log.Printf("%+v", err)
+			c.JSON(http.StatusInternalServerError, err.Error())
 			return
 		}
 	}

@@ -26,7 +26,7 @@ func GetUserByUserID(ctx context.Context, userID int64) (*User, error) {
 		if err == sql.ErrNoRows {
 			return nil, errors.WithMessage(err, query)
 		}
-		return nil, errors.Wrap(err, "get users by user_id")
+		return nil, errors.WithStack(err)
 	}
 	return u, nil
 }
